@@ -222,6 +222,14 @@ export default {
         window.location.assign(`/e/${this.locale}/${this.path}?from=${id}`)
       })
     }
+  },
+  mounted() {
+    this.$nextTick(function () {
+      // without the delay, the dialog wouldn't go away
+      _.delay(() => {
+        this.selectEditor('markdown')
+      }, 500)
+    })
   }
 }
 </script>
